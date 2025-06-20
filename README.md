@@ -3,6 +3,11 @@
 - Visit: `http://localhost:8080/swagger-ui/index.html`
 - 📘 All APIs documented with request/response bodies.
 
+## 🧪 Postman Collection
+
+📥 Download: [`postman_collection.json`](./postman_collection.json)
+📁 Includes: Auth, Claim, Property, OTP, and File Upload requests.
+
 ### 🪪 Sample JWT Token
 
 ```
