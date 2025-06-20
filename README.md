@@ -1,63 +1,73 @@
-# 🛡️ Claim & Property Management System
+## 🔗 Swagger URL
 
-A secure Spring Boot backend application to manage **insurance claims** and **property listings** with:
-- JWT Authentication
-- Role-based Access (ADMIN, AGENT, CUSTOMER)
-- File Uploads
-- OTP Recovery (mocked)
-- PDF Generation (iText)
-- Swagger Docs
-- Logging and Testing
+- Visit: `http://localhost:8080/swagger-ui/index.html`
+- 📘 All APIs documented with request/response bodies.
 
----
+### 🪪 Sample JWT Token
 
-## 🚀 Features
-
-- ✅ JWT-based Authentication & Authorization
-- 👥 Role-based Access Control (ADMIN, AGENT, CUSTOMER)
-- 🔁 OTP-based password recovery (mocked)
-- 🧾 Claim Module: CRUD + Filter by status/date
-- 🏠 Property Module: Upload up to 200 images/property
-- 📄 Auto-generate Claim PDF on approval using iText
-- 📨 Simulate Email/SMS (logs)
-- 📘 API Documentation using Swagger/OpenAPI
-- 📊 Log all requests & exceptions
-- 🧪 JUnit + Mockito for Unit Testing
-
----
-
-## 🧱 Tech Stack
-
-| Layer        | Technology                      |
-|--------------|----------------------------------|
-| Language     | Java 17                         |
-| Framework    | Spring Boot 3.x                 |
-| Security     | Spring Security + JWT           |
-| Build Tool   | Maven                           |
-| DB           | MySQL / H2                      |
-| ORM          | Spring Data JPA (Hibernate)     |
-| PDF          | iText 5.5.13.3                  |
-| Docs         | Springdoc Swagger/OpenAPI       |
-| Testing      | JUnit 5, Mockito                |
-
----
-
-## ⚙️ Build & Run Instructions
-
-### 1. Clone and Build
-
-```bash
-git clone https://github.com/your-username/claim-property-system.git
-cd claim-property-system
-mvn clean install
 ```
-### 2. Configure Application Properties
-#### Edit `src/main/resources/application.properties:`
+
+Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluQGVtYWlsLmNvbSIsImlzcyI6ImNsYWltLXN5c3RlbSIsImV4cCI6MTY5OTk5OTk5OX0.abcd1234xyz
+
+```
+
+> Replace it with a real token generated via `/api/auth/login`.
+
+---
+
+## 🛠️ Build & Run Instructions
+
+### 1. Clone Repository
 
 ```bash
+git clone https://github.com/shankarbhola/claim-property-system.git
+
+cd claim-property-system
+```
+
+### 2. Configure Application
+
+Update `application.properties`:
+
+```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/claim_property_db
 spring.datasource.username=root
-spring.datasource.password=your_password
+spring.datasource.password=yourpassword
+
+jwt.secretKey=asdf-asdf-asdf
+jwt.issuer=shankar
+jwt.expityTime=86400000
+
+file.upload-dir=ADD-YOUR-PATH/uploads
+pdf.output-dir=pdfs
 ```
 
-### 3. 3. Run the App
+### 3. Build the Project
+
+```bash
+mvn clean install
+```
+
+### 4. Run the Application
+
+```bash
+mvn spring-boot:run
+```
+
+### 5. Access Swagger UI
+
+Visit: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
+---
+
+## 🧪 Test Coverage
+
+Run:
+
+```bash
+mvn test
+```
+
+![Test Coverage](https://i.ibb.co/bMSX55r6/image.png)
+
+> 97% coverage on controller/service layers ensured using JUnit 4 + Mockito.
